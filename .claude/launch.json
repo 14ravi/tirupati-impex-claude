@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "web",
+      "runtimeExecutable": "C:\\Users\\prras\\AppData\\Local\\Programs\\nodejs\\node.exe",
+      "runtimeArgs": ["frontend/node_modules/next/dist/bin/next", "dev", "frontend", "--port", "3000"],
+      "port": 3000
+    },
+    {
+      "name": "api",
+      "runtimeExecutable": "backend\\.venv\\Scripts\\python.exe",
+      "runtimeArgs": ["-m", "uvicorn", "app.main:app", "--app-dir", "backend", "--port", "8000", "--reload", "--reload-dir", "backend/app"],
+      "port": 8000
+    }
+  ]
+}
