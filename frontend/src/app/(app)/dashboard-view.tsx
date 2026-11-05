@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useState, type ReactNode } from "react";
 import { useUser } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
+import { StatCard as Stat, StatValue as Value } from "@/components/stat-card";
 import { api } from "@/lib/api";
 
 type Summary = {
@@ -125,21 +126,4 @@ function AttentionCard({ href, icon, label, value }: { href: string; icon: React
       <ArrowRight className="size-4 shrink-0 text-muted group-hover:text-accent" aria-hidden />
     </Link>
   );
-}
-
-function Stat({ label, value, hint }: { label: string; value?: number | string; hint?: string }) {
-  return (
-    <div className="rounded-lg border border-line bg-surface px-4 py-3">
-      <p className="text-sm text-muted">{label}</p>
-      <Value value={value} />
-      {hint && <p className="mt-0.5 text-xs text-muted">{hint}</p>}
-    </div>
-  );
-}
-
-function Value({ value }: { value?: number | string }) {
-  if (value === undefined) {
-    return <div className="mt-1.5 h-7 w-12 animate-pulse rounded bg-subtle" aria-label="Loading" />;
-  }
-  return <p className="mt-1 text-2xl font-semibold tabular-nums">{value}</p>;
 }
